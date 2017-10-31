@@ -1,0 +1,29 @@
+facturador:
+  restart: always
+  build: ./facturador
+  expose:
+    - "8000"
+  volumes:
+    - /usr/src/app
+    - /usr/src/app/static
+    - /tmp/www/facturador/media:/usr/src/app/media
+    - /tmp/www/facturador.ml/static:/tmp/www/facturador.ml/static
+  env_file: .env
+  environment:
+    DEBUG: 'True'
+  command: /usr/local/bin/gunicorn facturador.wsgi:application -w 2 -b :8000
+
+nginx:
+  restart: always
+  build: ./nginx/
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - /tmp/www/facturador.ml/static/
+    - /www/media
+    - /etc/letsencrypt:/etc/letsencrypt
+  volumes_from:
+    - facturador
+  links:
+    - facturador:facturador

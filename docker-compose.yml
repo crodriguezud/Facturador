@@ -1,0 +1,25 @@
+facturador:
+  restart: always
+  build: ./facturador
+  volumes:
+    - /usr/src/app
+    - /usr/src/app/static
+    - ./media/:/var/www/facturador.ml/media
+    - ./static/:/var/www/facturador.ml/static
+  env_file: .env
+  environment:
+    DEBUG: 'True'
+  command: ./run_web.sh
+
+nginx:
+  restart: always
+  build: ./nginx/
+  ports:
+    - "80:80"
+  volumes:
+    - ./static/:/var/www/facturador.ml/static/
+    - ./media/:/var/www/facturador.ml/media
+  volumes_from:
+    - facturador
+  links:
+    - facturador:facturador

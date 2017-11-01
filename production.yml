@@ -11,4 +11,4 @@ facturador:
   env_file: .env
   environment:
     DEBUG: 'True'
-  command: /usr/local/bin/gunicorn facturador.wsgi:application -w 2 -b :8000
+  command: /usr/local/bin/gunicorn wsgi:application -w 2 -b :8000

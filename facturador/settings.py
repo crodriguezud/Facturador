@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import datetime
 from os.path import abspath, dirname, join, normpath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -64,7 +65,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'facturador.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -83,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'facturador.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database

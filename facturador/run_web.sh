@@ -1,4 +1,4 @@
 #!/bin/sh
-python manage.py migrate --settings=facturador.settings
-python manage.py collectstatic --no-input --settings=facturador.settings
-/usr/local/bin/gunicorn facturador.wsgi:application -w 2 -b :8000
+python manage.py migrate --settings=settings
+python manage.py collectstatic --no-input --settings=settings
+/usr/local/bin/gunicorn wsgi:application -w 2 -b :8000

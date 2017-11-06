@@ -44,13 +44,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #'allauth',
-    #'allauth.account',
-    #'allauth.socialaccount',
+    'rest_framework',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
 
     'contabilidad',
     'stock',
     'usuario',
+    'index',
 ]
 
 SITE_ID = 1
@@ -201,6 +205,6 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
     )
 
-LOGIN_REDIRECT_URL = '/user-profile/'
+LOGIN_REDIRECT_URL = '/'
 
 DEFAULT_FROM_EMAIL = 'no-reply@facturador.ml'

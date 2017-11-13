@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils.encoding import smart_unicode
 from django.utils.translation import ugettext_lazy as _
 
 class Usuario(models.Model):

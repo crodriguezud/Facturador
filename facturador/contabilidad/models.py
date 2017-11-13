@@ -4,7 +4,6 @@ from django.db import models
 from datetime import datetime
 
 from django.template.defaultfilters import slugify
-from django.utils.encoding import smart_unicode
 
 from stock.models import Producto
 from usuario.models import Cliente, Usuario
@@ -37,7 +36,7 @@ class Factura(models.Model):
 		super(self.__class__, self).save(*args, **kwargs)
 
 	def __unicode__(self):
-		return smart_unicode(self.consecutivo)
+		return str(self.consecutivo)
 
 	def get_factura_producto(self):
 		return FacturaProducto.objects.filter(factura = self)
@@ -50,7 +49,7 @@ class FacturaProducto(models.Model):
 	valor_producto_unidad = models.CharField(max_length=20)
 
 	def __unicode__(self):
-		return smart_unicode(self.factura.consecutivo + " - " + self.valor_producto_unidad)
+		return str(self.factura.consecutivo + " - " + self.valor_producto_unidad)
 
 
 	

@@ -9,5 +9,6 @@ class IndexView(TemplateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect('/usuario/')
+        prueba = "Prueba debug"
         context = self.get_context_data(**kwargs)
         return self.render_to_response(context)

@@ -1,7 +1,5 @@
 from __future__ import unicode_literals
 
-from django.utils.encoding import smart_unicode
-
 from django.db import models
 
 class TipoProducto(models.Model):
@@ -9,28 +7,28 @@ class TipoProducto(models.Model):
 	nombre = models.CharField(max_length=20)
 
 	def __unicode__(self):
-		return smart_unicode(self.nombre)
+		return str(self.nombre)
 
 class TipoEstampado(models.Model):
 	codigo = models.CharField(max_length=5)
 	nombre = models.CharField(max_length=20)
 
 	def __unicode__(self):
-		return smart_unicode(self.nombre)
+		return str(self.nombre)
 
 class Talla(models.Model):
 	codigo = models.CharField(max_length=5)
 	nombre = models.CharField(max_length=20)
 
 	def __unicode__(self):
-		return smart_unicode(self.nombre)
+		return str(self.nombre)
 
 class Color(models.Model):
 	codigo = models.CharField(max_length=5)
 	nombre = models.CharField(max_length=20)
 
 	def __unicode__(self):
-		return smart_unicode(self.nombre)
+		return str(self.nombre)
 
 class Producto(models.Model):
 	tipo_producto = models.ForeignKey(TipoProducto)
@@ -41,4 +39,4 @@ class Producto(models.Model):
 	color = models.ForeignKey(Color)
 
 	def __unicode__(self):
-		return smart_unicode(self.tipo_producto.nombre + " - " + self.color.nombre + " - " + str(self.cantidad))
+		return str(self.tipo_producto.nombre + " - " + self.color.nombre + " - " + str(self.cantidad))

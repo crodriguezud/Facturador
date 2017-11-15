@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.github',
+    #'allauth.socialaccount.providers.facebook',
+    #'allauth.socialaccount.providers.github',
 
     'contabilidad',
     'stock',
@@ -209,3 +209,5 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_REDIRECT_URL = '/'
 
 DEFAULT_FROM_EMAIL = 'no-reply@facturador.ml'
+
+LOGIN_URL = '/'

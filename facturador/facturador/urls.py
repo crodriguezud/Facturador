@@ -27,6 +27,7 @@ urlpatterns = [
     # Apps
     url(r'^usuario/', include('usuario.urls')),
     url(r'^stock/', include('stock.urls')),
+    url(r'^contabilidad/', include('contabilidad.urls')),
 ]
 
 from django.conf import settings

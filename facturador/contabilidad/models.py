@@ -20,7 +20,7 @@ class Factura(models.Model):
 		(1, "No paga"),
 		(2, "Paga"),
 		(3, "Anulada/Cancelada"),
-		(4, "Abono")),
+		(4, "Abonó")),
 		default=1)
 	#usuario_actualizacion = foreignKey(Usuario)
 	fecha_actualizacion = models.DateField()

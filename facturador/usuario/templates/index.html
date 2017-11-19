@@ -50,7 +50,16 @@
 
 		<!-- Two -->
 		<section id="two">
-			{% if user.is_authenticated %} Botones {% else %} Index {% endif %}
+			{% if user.is_authenticated %} 
+			<a href="/contabilidad/crear-factura">Crear Factura</a><br>
+			<a href="/stock/inventario/">Inventario</a><br>
+			<a href="/stock/lista-productos/">Listar Productos</a><br>
+			<a href="/stock/agregar-producto">Agregar Producto</a><br>
+			Modificar Producto<br>
+			Reportes<br>
+			 {% else %}
+			  Index
+			   {% endif %}
 		</section>
 
 		<!-- Three -->
@@ -63,11 +72,23 @@
 		<div class="inner">
 			{% if user.is_authenticated %}
 			<ul>
-				<a href="/accounts/logout" class="button">Cerrar Sesion</a>
+				<a href="/cuenta/logout" class="button">Cerrar Sesion</a>
+			</ul>
+			<ul>
+				<a href="/stock/lista-colores/" class="button">Colores</a>
+			</ul>
+			<ul>
+				<a href="/stock/lista-tipos-productos/" class="button">Tipos Productos</a>
+			</ul>
+			<ul>
+				<a href="/stock/lista-tipos-estampados/" class="button">Tipos Estampados</a>
+			</ul>
+			<ul>
+				<a href="/stock/lista-tallas/" class="button">Tallas</a>
 			</ul>
 			{% else %}
 			<ul>
-				<a href="/accounts/login" class="button">Iniciar Sesion</a>
+				<a href="/cuenta/login" class="button">Iniciar Sesion</a>
 			</ul>
 			{% endif %}
 			<ul class="icons">

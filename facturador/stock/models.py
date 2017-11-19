@@ -6,28 +6,28 @@ class TipoProducto(models.Model):
 	codigo = models.CharField(max_length=5)
 	nombre = models.CharField(max_length=20)
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.nombre)
 
 class TipoEstampado(models.Model):
 	codigo = models.CharField(max_length=5)
 	nombre = models.CharField(max_length=20)
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.nombre)
 
 class Talla(models.Model):
 	codigo = models.CharField(max_length=5)
 	nombre = models.CharField(max_length=20)
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.nombre)
 
 class Color(models.Model):
 	codigo = models.CharField(max_length=5)
 	nombre = models.CharField(max_length=20)
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.nombre)
 
 class Producto(models.Model):
@@ -38,5 +38,5 @@ class Producto(models.Model):
 	descripcion = models.TextField(max_length=500)
 	color = models.ForeignKey(Color)
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.tipo_producto.nombre + " - " + self.color.nombre + " - " + str(self.cantidad))

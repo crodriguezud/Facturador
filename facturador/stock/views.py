@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from stock.models import Producto, Color, TipoProducto, TipoEstampado, Talla
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from .forms import AgregarProductoForm, CrearColorForm, CrearTipoProductoForm, CrearTipoEstampadoForm, CrearTallaForm
 
 def index(request):
@@ -29,6 +29,16 @@ class ListaProductosView(ListView):
     model = Producto
     template_name = 'lista_productos.html'
 
+
+class ActualizarProductoView(UpdateView):
+    model = Producto
+    fields = ['tipo_producto','tipo_estampado','talla','cantidad','descripcion','color',]
+    template_name = 'actualizar_producto.html'
+
+    def get_success_url(self):
+        return '/stock/lista-productos/'
+    
+
 class CrearColorView(CreateView):
     model = Color
     template_name = "crear_color.html"
@@ -55,6 +65,13 @@ class CrearTipoProductoView(CreateView):
 class ListaTiposProductosView(ListView):
     model = TipoProducto
     template_name = 'lista_tipos_productos.html'
+
+class EliminarTipoProductoView(DeleteView):
+    model = TipoProducto
+    template_name = 'eliminar_tipo_producto.html'
+
+    def get_success_url(self):
+        return '/stock/lista-tipos-productos/'
 
 
 class CrearTipoEstampadoView(CreateView):

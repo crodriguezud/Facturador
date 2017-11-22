@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 
-from .views import AgregarProductoView, ListaColoresView, CrearColorView, ListaTiposProductosView, CrearTipoProductoView, ListaTiposEstampadosView, CrearTipoEstampadoView, ListaTallasView, CrearTallaView, ListaProductosView
+from .views import AgregarProductoView, ListaColoresView, CrearColorView, ListaTiposProductosView, CrearTipoProductoView, ListaTiposEstampadosView, CrearTipoEstampadoView, ListaTallasView, CrearTallaView, ListaProductosView, ActualizarProductoView, EliminarTipoProductoView
 from . import views
 
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
     #Productos
     url(r'^agregar-producto/$', login_required(AgregarProductoView.as_view()), name='agregar_producto'),
     url(r'^lista-productos/$', login_required(ListaProductosView.as_view()), name='lista_productos'),
+    url(r'^producto/(?P<pk>[\w-]+)/$', login_required(ActualizarProductoView.as_view()), name='actualizar_producto'),
     
     #Colores
     url(r'^lista-colores/$', login_required(ListaColoresView.as_view()), name='lista_colores'),
@@ -18,6 +19,7 @@ urlpatterns = [
     #Tipos Productos
     url(r'^lista-tipos-productos/$', login_required(ListaTiposProductosView.as_view()), name='lista_tipos_productos'),
     url(r'^crear-tipo-producto/$', login_required(CrearTipoProductoView.as_view()), name='crear_tipo_producto'),
+    url(r'^eliminar-tipo-producto/(?P<pk>[\w-]+)/$', login_required(EliminarTipoProductoView.as_view()), name='eliminar_tipo_producto'),
     
     #Tipos Estampados
     url(r'^lista-tipos-estampados/$', login_required(ListaTiposEstampadosView.as_view()), name='lista_tipos_estampados'),

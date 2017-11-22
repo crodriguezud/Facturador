@@ -40,7 +40,7 @@
                 {% for producto in object_list %}
                 <article class="6u 12u$(xsmall) work-item">
                     <h3>
-                        {{ producto.tipo_producto.nombre }} - {{producto.talla.nombre}} - {{producto.color}}
+                        <a href="/stock/producto/{{producto.id}}">{{ producto.tipo_producto.nombre }} - {{producto.talla.nombre}} - {{producto.color}}</a>
                     </h3>
                     <p>
                         {{ producto.cantidad }}
